@@ -1,0 +1,13 @@
+.menu {
+  display: flex;
+}
+
+.menu li {
+  padding: 10px;
+}
+
+.menu li a {
+  color: red;
+}
+
+/*# sourceMappingURL=TopMenu.module.css.map */
