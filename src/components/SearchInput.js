@@ -34,7 +34,7 @@ function SearchInput() {
             {serachLog.map((item, index) => {
               return <li key={`${item}-${index}`}>
                 {item}
-                <a href="javascript:void(0)" onClick={()=>SearchLogDelete(index)}>X</a>
+                <button type="button" onClick={()=>SearchLogDelete(index)}>X</button>
               </li>;
             })}
           </ul>
