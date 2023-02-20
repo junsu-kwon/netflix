@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function SearchInput() {
   const [search, setSearch] = useState('');
@@ -11,13 +11,19 @@ function SearchInput() {
     setSearchLog((cur) => [...cur, search]);
   };
   const SearchLogDelete = (targetIndex) => {
-    setSearchLog(serachLog.filter((item, index)=> targetIndex !== index));
+    setSearchLog(serachLog.filter((item, index) => targetIndex !== index));
   };
 
   const onReset = () => {
     input.current.focus();
     setSearch('');
   };
+
+  useEffect(() => {
+    console.log('-----------------------');
+    console.log('start search :>> ', search);
+    return () => console.log('end search :>> ', search);
+  }, [search]);
 
   return (
     <>
@@ -32,10 +38,14 @@ function SearchInput() {
         <div>
           <ul>
             {serachLog.map((item, index) => {
-              return <li key={`${item}-${index}`}>
-                {item}
-                <button type="button" onClick={()=>SearchLogDelete(index)}>X</button>
-              </li>;
+              return (
+                <li key={`${item}-${index}`}>
+                  {item}
+                  <button type="button" onClick={() => SearchLogDelete(index)}>
+                    X
+                  </button>
+                </li>
+              );
             })}
           </ul>
         </div>
