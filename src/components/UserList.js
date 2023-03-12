@@ -1,7 +1,8 @@
 import React from 'react';
 import User from './User';
 
-function UserList({ users, onDelete, onToggle }) {
+function UserList({ users }) {
+  console.log('render - userlist');
   return (
     <>
       {users.map((user) => (
@@ -11,8 +12,6 @@ function UserList({ users, onDelete, onToggle }) {
           name={user.name}
           email={user.email}
           active={user.active}
-          onClick={() => onDelete(user)}
-          onToggle={() => onToggle(user)}
         />
       ))}
     </>

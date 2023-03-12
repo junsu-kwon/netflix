@@ -1,6 +1,7 @@
 import { Reset } from 'styled-reset';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Main from './pages/Main';
+import Test from './components/Test';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Reset />
       <Routes>
         <Route path="/" element={<Main />}></Route>
+        <Route path="/test" element={<Test />}></Route>
       </Routes>
     </Router>
   );
